@@ -1,0 +1,46 @@
+<h1 id="tableLabel">Customer List</h1>
+
+<div class="row mb-3">
+    <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="Search customers name / phone number / email" [(ngModel)]="searchQuery">
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-primary" (click)="searchCustomer()">Search</button>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-primary" (click)="reset()">Reset</button>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-success" (click)="addCustomer()">Add Customer</button>
+    </div>
+</div>
+
+<p *ngIf="loading"><em>Loading...</em></p>
+
+<p *ngIf="!customers?.length"><em>No Customer Record...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="customers.length">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{ customer.customerId }}</td>
+            <td>{{ customer.customerName }}</td>
+            <td>{{ customer.customerEmail }}</td>
+            <td>{{ customer.customerPhoneNumber }}</td>
+            <td>{{ customer.customerGender === 1 ? 'Male' : 'Female' }}</td>
+            <td>
+                <button class="btn btn-primary mr-2" style="margin-right: 10px" (click)="editCustomer(customer.customerId)">Edit</button>
+                <button class="btn btn-danger mr-2" (click)="deleteCustomer(customer.customerId)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
