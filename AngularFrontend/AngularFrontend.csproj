@@ -20,18 +20,20 @@
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <None Remove="ClientApp\src\services\" />
-    <None Remove="ClientApp\src\app\customer-data\" />
     <None Remove="ClientApp\src\models\" />
-    <None Remove="ClientApp\src\app\customer-detail\" />
-    <None Remove="ClientApp\src\app\customer-new\" />
+    <None Remove="ClientApp\src\app\Customer\" />
+    <None Remove="ClientApp\src\app\Customer\customer-new\" />
+    <None Remove="ClientApp\src\app\Customer\customer-detail\" />
+    <None Remove="ClientApp\src\app\Customer\customer-data\" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ClientApp\src\services\" />
-    <Folder Include="ClientApp\src\app\customer-data\" />
     <Folder Include="ClientApp\src\models\" />
-    <Folder Include="ClientApp\src\app\customer-detail\" />
-    <Folder Include="ClientApp\src\app\customer-new\" />
+    <Folder Include="ClientApp\src\app\Customer\" />
+    <Folder Include="ClientApp\src\app\Customer\customer-new\" />
+    <Folder Include="ClientApp\src\app\Customer\customer-detail\" />
+    <Folder Include="ClientApp\src\app\Customer\customer-data\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
